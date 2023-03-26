@@ -50,6 +50,6 @@ public class TaskDaoImpl implements TaskDao {
     }
 
     private Session getSession() {
-        return sessionFactory.getCurrentSession();
+        return sessionFactory.openSession();
     }
 }

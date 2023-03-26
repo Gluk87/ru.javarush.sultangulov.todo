@@ -19,14 +19,9 @@ import org.thymeleaf.templatemode.TemplateMode;
 @Configuration
 @EnableWebMvc
 @ComponentScan("ru.javarush.todo")
-//@AllArgsConstructor(onConstructor = @__(@Autowired))
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class WebConfig implements WebMvcConfigurer {
     private final ApplicationContext applicationContext;
-
-    @Autowired
-    public WebConfig(ApplicationContext applicationContext) {
-        this.applicationContext = applicationContext;
-    }
 
     @Bean
     public ThymeleafViewResolver viewResolver() {
