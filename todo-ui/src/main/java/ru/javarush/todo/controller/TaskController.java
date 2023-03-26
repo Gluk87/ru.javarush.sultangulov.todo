@@ -16,6 +16,8 @@ import ru.javarush.todo.service.TaskService;
 
 import java.util.List;
 
+import static java.util.Objects.isNull;
+
 @Controller
 @AllArgsConstructor
 @RequestMapping("/")
@@ -27,6 +29,8 @@ public class TaskController {
     public String tasks(Model model,
                             @RequestParam(value = "page", required = false, defaultValue = "1") int page,
                             @RequestParam(value = "limit", required = false, defaultValue = "10") int limit) {
+        List<Task> tasks = taskService.getAll((page - 1) * limit, limit);
+        model.addAttribute("tasks", tasks);
         return "tasks";
     }
 
@@ -34,18 +38,26 @@ public class TaskController {
     public void edit(Model model,
                      @PathVariable Integer id,
                      @RequestBody TaskInfo info) {
+        if (isNull(id) || id <= 0) {
+            throw new RuntimeException("invalid id");
+        }
 
+        Task task = taskService.edit(id, info.getDescription(), info.getStatus());
     }
 
     @PostMapping("/")
     public void add(Model model,
                      @RequestBody TaskInfo info) {
-
+        Task task = taskService.create(info.getDescription(), info.getStatus());
     }
 
     @DeleteMapping("/{id}")
     public String delete(Model model,
                      @PathVariable Integer id) {
+        if (isNull(id) || id <= 0) {
+            throw new RuntimeException("invalid id");
+        }
+        taskService.delete(id);
         return "tasks";
     }
 }
