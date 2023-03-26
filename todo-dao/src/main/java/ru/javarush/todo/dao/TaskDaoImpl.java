@@ -5,6 +5,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import ru.javarush.todo.entity.Task;
 
 import java.util.List;
@@ -24,6 +26,7 @@ public class TaskDaoImpl implements TaskDao {
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED)
     public int getAllCount() {
         Query<Long> query = getSession().createQuery("select count(t) from Task t", Long.class);
         return Math.toIntExact(query.uniqueResult());
