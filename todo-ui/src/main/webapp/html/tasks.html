@@ -27,11 +27,11 @@
                 </td>
             </tr>
         </tbody>
-        <h2>
-            <button th:each="pageNumber : ${page_numbers}" class="button_page">
-                <a th:href="@{/page=${pageNumber}, limit=10}" th:text="${pageNumber}" th:classapend="${pageNumber == current_page? 'active_page' : ''}"></a>
-            </button>
-        </h2>
     </table>
+    <h2>
+        <button th:each="pageNumber : ${page_numbers}" class="button_page">
+            <a th:href="@{/(page=${pageNumber}, limit=10)}" th:text="${pageNumber}" th:classapend="${pageNumber == current_page? 'active_page' : ''}"></a>
+        </button>
+    </h2>
 </body>
 </html>
