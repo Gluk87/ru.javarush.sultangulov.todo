@@ -6,20 +6,20 @@ Instruction:
 2) Upload a dump with scripts to the Database;
 3) Launch the Application.:
 
-![alt text](https://github.com/Gluk87/ru.javarush.sultangulov.ru/blob/dev/img/screen1.png)
+![alt text](https://github.com/Gluk87/ru.javarush.sultangulov.todo/blob/dev/img/screen1.png)
 
 Switch to page 2:
 
-![alt text](https://github.com/Gluk87/ru.javarush.sultangulov.ru/blob/dev/img/screen2.png)
+![alt text](https://github.com/Gluk87/ru.javarush.sultangulov.todo/blob/dev/img/screen2.png)
 
 Add new task:
 
-![alt text](https://github.com/Gluk87/ru.javarush.sultangulov.ru/blob/dev/img/screen3.png)
+![alt text](https://github.com/Gluk87/ru.javarush.sultangulov.todo/blob/dev/img/screen3.png)
 
 Edit task:
 
-![alt text](https://github.com/Gluk87/ru.javarush.sultangulov.ru/blob/dev/img/screen4.png)
+![alt text](https://github.com/Gluk87/ru.javarush.sultangulov.todo/blob/dev/img/screen4.png)
 
 Delete task 14:
 
-![alt text](https://github.com/Gluk87/ru.javarush.sultangulov.ru/blob/dev/img/screen5.png)
+![alt text](https://github.com/Gluk87/ru.javarush.sultangulov.todo/blob/dev/img/screen5.png)
