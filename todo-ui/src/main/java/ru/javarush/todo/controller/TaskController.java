@@ -50,7 +50,7 @@ public class TaskController {
         if (isNull(id) || id <= 0) {
             throw new RuntimeException("invalid id");
         }
-
+        System.out.println("start update");
         Task task = taskService.edit(id, info.getDescription(), info.getStatus());
         return tasks(model, 1, 10);
     }

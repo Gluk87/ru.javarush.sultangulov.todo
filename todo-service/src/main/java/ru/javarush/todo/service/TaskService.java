@@ -30,13 +30,14 @@ public class TaskService {
         if (isNull(task)) {
             throw new RuntimeException("Not found");
         }
-
+        System.out.println("start update1");
         task.setDescription(description);
         task.setStatus(status);
         taskDao.saveOrUpdate(task);
         return task;
     }
 
+    @Transactional
     public Task create(String description, Status status) {
         Task task = new Task();
         task.setDescription(description);

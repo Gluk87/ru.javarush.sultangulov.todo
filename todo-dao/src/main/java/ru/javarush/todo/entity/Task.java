@@ -1,5 +1,6 @@
 package ru.javarush.todo.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -17,10 +18,13 @@ import lombok.Setter;
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
 
+    @Column(name = "description")
     private String description;
 
     @Enumerated(EnumType.ORDINAL)
+    @Column(name = "status")
     private Status status;
 }
