@@ -11,6 +11,7 @@
 
     <artifactId>todo-dao</artifactId>
 
+
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -47,6 +48,7 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.14.1</version>
         </dependency>
+
     </dependencies>
 
 </project>
