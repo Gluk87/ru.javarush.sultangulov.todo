@@ -1,7 +1,6 @@
 package ru.javarush.todo.controller;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,10 +18,9 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static java.util.Objects.isNull;
-import static java.util.stream.IntStream.rangeClosed;
 
 @Controller
-@AllArgsConstructor(onConstructor = @__(@Autowired))
+@AllArgsConstructor
 @RequestMapping("/")
 public class TaskController {
 
