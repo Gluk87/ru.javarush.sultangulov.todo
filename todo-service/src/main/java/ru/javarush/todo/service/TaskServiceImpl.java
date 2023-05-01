@@ -8,8 +8,7 @@ import ru.javarush.todo.entity.Status;
 import ru.javarush.todo.entity.Task;
 
 import java.util.List;
-
-import static java.util.Objects.isNull;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -29,15 +28,15 @@ public class TaskServiceImpl implements TaskService {
     @Override
     @Transactional
     public Task edit(int id, String description, Status status) {
-        Task task = taskDao.getById(id);
-        if (isNull(task)) {
+        Optional<Task> task = taskDao.getById(id);
+        if (task.isPresent()) {
+            task.get().setDescription(description);
+            task.get().setStatus(status);
+            taskDao.saveOrUpdate(task.get());
+            return task.get();
+        } else {
             throw new RuntimeException("Not found");
         }
-        System.out.println("start update1");
-        task.setDescription(description);
-        task.setStatus(status);
-        taskDao.saveOrUpdate(task);
-        return task;
     }
 
     @Override
@@ -53,11 +52,11 @@ public class TaskServiceImpl implements TaskService {
     @Override
     @Transactional
     public void delete(int id) {
-        Task task = taskDao.getById(id);
-        if (isNull(task)) {
+        Optional<Task> task = taskDao.getById(id);
+        if (task.isPresent()) {
+            taskDao.delete(task.get());
+        } else {
             throw new RuntimeException("Not found");
         }
-
-        taskDao.delete(task);
     }
 }

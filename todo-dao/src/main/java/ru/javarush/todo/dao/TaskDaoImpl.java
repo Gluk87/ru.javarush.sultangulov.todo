@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.javarush.todo.entity.Task;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @AllArgsConstructor
@@ -35,10 +36,10 @@ public class TaskDaoImpl implements TaskDao {
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
-    public Task getById(int id) {
+    public Optional<Task> getById(int id) {
         Query<Task> query = getSession().createQuery("select t from Task t where t.id = :ID", Task.class);
         query.setParameter("ID", id);
-        return query.uniqueResult();
+        return Optional.of(query.uniqueResult());
     }
 
     @Override
